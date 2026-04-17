@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@tailwind utilities;
+
+@theme {
+  --variant-dark: .dark;
+  --color-background: var(--background);
+
+  --color-brand: #7c3aed;
+  --color-muted: var(--muted-foreground);
+  --color-main: var(--foreground);
+
+ 
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+
+  --color-skill-bg: var(--card);
+  --color-skill-border: var(--card-border);
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000; 
+  --muted-foreground: #111827; 
+
+  --card: #ffffff; 
+  --card-border: #e4e4e7; 
+}
+
+
+.dark {
+  --background: #09090b; 
+  --foreground: #fafafa; 
+  --muted-foreground: #a1a1aa; 
+
+  
+  --card: #18181b; 
+  --card-border: #27272a; 
+}
+
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
