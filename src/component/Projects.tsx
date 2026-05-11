@@ -8,7 +8,7 @@ const myProjects = [
     title: "ConsultingCo",
     description: "I utilized React.js to create a dynamic frontend and TailwindCSS for a sleek design, while Typescript ensured type safety and maintainable code.",
     tags: ["React.js", "TailwindCSS", "Typescript"],
-    link: "#",
+    link: "https://darling-sfogliatella-9ecf00.netlify.app/",
     github: "https://github.com/Omotolanny/ConsultingCo",
     image: "/Consulting.jpeg" 
   },
@@ -16,7 +16,7 @@ const myProjects = [
     title: "E-commerce",
     description: "A modern e-commerce solution with a focus on user experience and seamless checkout processes.",
     tags: ["HTML", "Tailwind CSS", "JS"],
-    link: "#",
+    link: "https://eqsh.netlify.app/",
     github: "https://github.com/Omotolanny/Quick-Shop",
     image: "/Quickshop.jpeg"
   },
@@ -24,7 +24,7 @@ const myProjects = [
     title: "Landing Page",
     description: "A visually appealing landing page for Tolzz, showcasing the product's features and benefits with a clean design.",
     tags: ["HTML", "CSS", "TailwindCSS"],
-    link: "#",
+    link: "https://tolzz.netlify.app/",
     github: "https://github.com/Omotolanny/TailwindTolzz",
     image: "/Tolzz.png"
   }
