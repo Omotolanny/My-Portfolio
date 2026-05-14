@@ -58,8 +58,8 @@ export default function Testimonial() {
       
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Testimonilas</h2>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Testimonilas from colleagues who have worked with me.</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Testimonials</h2>
+          <h4 className="text-3xl md:text-4xl font-bold mb-4">Testimonials from colleagues who have worked with me.</h4>
           <div className="w-20 h-1 bg-violet-600 mx-auto rounded-full" />
         </div>
 
