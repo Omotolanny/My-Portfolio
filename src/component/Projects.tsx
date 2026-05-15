@@ -42,7 +42,7 @@ export default function Projects() {
             <div className="w-20 h-1 bg-violet-600 rounded-full" />
           </div>
           <p className="text-foreground max-w-md">
-            A glimpse into the applications I've built, focusing on clean code and robust backend logic.
+            A glimpse into the applications I've built, focusing on clean code and prioritizing user experience.
           </p>
         </div>
 
