@@ -40,7 +40,7 @@ export default function Hero() {
             <a href='#Projects' className="flex items-center gap-2 px-8 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-xl font-bold transition-all group">
               View My Work <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="/CV (2).pdf" download="CV (2).pdf" className="flex items-center gap-2 px-8 py-3 border-2 border-violet-600/20 dark:border-violet-600/40 hover:bg-violet-50 dark:hover:bg-violet-900/20 text-violet-600 dark:text-violet-400 rounded-xl font-bold transition-all">
+            <a href="/CV.pdf" download="CV.pdf" className="flex items-center gap-2 px-8 py-3 border-2 border-violet-600/20 dark:border-violet-600/40 hover:bg-violet-50 dark:hover:bg-violet-900/20 text-violet-600 dark:text-violet-400 rounded-xl font-bold transition-all">
               <Download size={18} /> Download CV
             </a>
           </div>
