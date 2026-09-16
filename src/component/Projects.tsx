@@ -5,6 +5,14 @@ import Image from 'next/image'
 
 const myProjects = [
   {
+    title: "TaDa",
+    description: "A task management application built with React.js, TailwindCSS, and Typescript, providing users with an intuitive interface that helps developers organize and track their tasks efficiently.",
+    tags: ["React.js", "TailwindCSS", "Typescript"],
+    link: "https://tada-jefs.onrender.com/",
+    github: "https://github.com/ProGrowing/TaDa",
+    image: "/TaDa.jpeg"
+  },
+  {
     title: "ConsultingCo",
     description: "I utilized React.js to create a dynamic frontend and TailwindCSS for a sleek design, while Typescript ensured type safety and maintainable code.",
     tags: ["React.js", "TailwindCSS", "Typescript"],
@@ -12,22 +20,14 @@ const myProjects = [
     github: "https://github.com/Omotolanny/ConsultingCo",
     image: "/Consulting.jpeg" 
   },
-  {
-    title: "E-commerce",
-    description: "A modern e-commerce solution with a focus on user experience and seamless checkout processes.",
-    tags: ["HTML", "Tailwind CSS", "JS"],
-    link: "https://eqsh.netlify.app/",
-    github: "https://github.com/Omotolanny/Quick-Shop",
-    image: "/Quickshop.jpeg"
-  },
-  {
-    title: "Landing Page",
-    description: "A visually appealing landing page for Tolzz, showcasing the product's features and benefits with a clean design.",
-    tags: ["HTML", "CSS", "TailwindCSS"],
-    link: "https://tolzz.netlify.app/",
-    github: "https://github.com/Omotolanny/TailwindTolzz",
-    image: "/Tolzz.png"
-  }
+  // {
+  //   title: "Landing Page",
+  //   description: "A visually appealing landing page for Tolzz, showcasing the product's features and benefits with a clean design.",
+  //   tags: ["HTML", "CSS", "TailwindCSS"],
+  //   link: "https://tolzz.netlify.app/",
+  //   github: "https://github.com/Omotolanny/TailwindTolzz",
+  //   image: "/Tolzz.png"
+  // }
 ]
 
 
