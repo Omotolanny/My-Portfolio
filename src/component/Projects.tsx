@@ -88,8 +88,8 @@ export default function Projects() {
                 {project.image ? (
                   <Image src={project.image} alt={project.title} fill className='object-cover h-full'/>
                 ) : (
-                  <div className="flex h-full items-center justify-center bg-violet-50 px-6 text-center dark:bg-violet-950/30">
-                    <span className="text-sm font-semibold text-violet-700 dark:text-violet-300">Confidential project preview</span>
+                  <div className="flex h-full items-center justify-center bg-violet-700 px-6 text-center dark:bg-violet-950/30">
+                    <span className="text-sm font-semibold text-white dark:text-violet-300">Confidential project preview</span>
                   </div>
                 )}
               </div>
@@ -110,7 +110,7 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                {project.status && <span className="mb-4 inline-block text-xs font-semibold text-violet-600">{project.status}</span>}
+                {project.status && <span className="mb-4 inline-block text-xs font-semibold text-violet-800 dark:text-violet-300">{project.status}</span>}
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
@@ -153,8 +153,8 @@ export default function Projects() {
               {selectedProject.image ? (
                 <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover" />
               ) : (
-                <div className="flex h-full items-center justify-center bg-violet-50 px-6 text-center dark:bg-violet-950/30">
-                  <span className="text-sm font-semibold text-violet-700 dark:text-violet-300">Confidential project preview</span>
+                <div className="flex h-full items-center justify-center bg-violet-700 px-6 text-center dark:bg-violet-950/30">
+                  <span className="text-sm font-semibold text-white dark:text-violet-300">Confidential project preview</span>
                 </div>
               )}
             </div>
@@ -180,7 +180,7 @@ export default function Projects() {
                   </a>}
                 </div>
               </div>
-              {selectedProject.status && <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-violet-600">{selectedProject.status}</p>}
+              {selectedProject.status && <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-violet-800 dark:text-violet-300">{selectedProject.status}</p>}
               <p className="mt-5 text-sm leading-6 text-foreground/80 sm:mt-6 sm:text-base sm:leading-7">{selectedProject.description}</p>
             </div>
           </motion.div>
