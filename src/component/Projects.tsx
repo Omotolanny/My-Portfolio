@@ -1,12 +1,13 @@
 'use client'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Github } from 'lucide-react'
+import { ExternalLink, Github, X } from 'lucide-react'
 import Image from 'next/image'
 
 const myProjects = [
   {
     title: "TaDa",
-    description: "A task management application built with React.js, TailwindCSS, and Typescript, providing users with an intuitive interface that helps developers organize and track their tasks efficiently.",
+    description: "I built a task management application for programmers that allows users to create, manage, and track tasks through different stages. Built with React.js, TailwindCSS, and Typescript, providing users with an intuitive interface that helps developers organize and track their tasks efficiently.",
     tags: ["React.js", "TailwindCSS", "Typescript"],
     link: "https://tada-jefs.onrender.com/",
     github: "https://github.com/ProGrowing/TaDa",
@@ -14,7 +15,7 @@ const myProjects = [
   },
   {
     title: "ConsultingCo",
-    description: "I utilized React.js to create a dynamic frontend and TailwindCSS for a sleek design, while Typescript ensured type safety and maintainable code.",
+    description: "I built a consulting website with React.js, TailwindCSS, and Typescript, providing a modern and responsive user experience.",
     tags: ["React.js", "TailwindCSS", "Typescript"],
     link: "https://darling-sfogliatella-9ecf00.netlify.app/",
     github: "https://github.com/Omotolanny/ConsultingCo",
@@ -32,6 +33,24 @@ const myProjects = [
 
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<typeof myProjects[number] | null>(null)
+
+  useEffect(() => {
+    if (!selectedProject) return
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedProject(null)
+    }
+
+    document.addEventListener('keydown', closeOnEscape)
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape)
+      document.body.style.overflow = ''
+    }
+  }, [selectedProject])
+
   return (
     <section id="Projects" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
@@ -50,6 +69,15 @@ export default function Projects() {
           {myProjects.map((project, index) => (
             <motion.div
               key={index}
+              role="button"
+              tabIndex={0}
+              onClick={() => setSelectedProject(project)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault()
+                  setSelectedProject(project)
+                }
+              }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -69,8 +97,8 @@ export default function Projects() {
                     {project.title}
                   </h3>
                   <div className="flex gap-3">
-                    <a href={project.github} className="p-1 rounded-full bg-card border border-card-border shadow-sm hover:text-violet-600 transition-colors"><Github size={20} /></a>
-                    <a href={project.link} className="text-foreground hover:text-violet-600 transition-colors"><button className="px-3 py-1 text-xs font-semibold cursor-pointer rounded-xl bg-violet-50 dark:bg-violet-900/30 text-foreground">Visit Site</button></a>
+                    <a href={project.github} onClick={(event) => event.stopPropagation()} className="p-1 rounded-full bg-card border border-card-border shadow-sm hover:text-violet-600 transition-colors"><Github size={20} /></a>
+                    <a href={project.link} onClick={(event) => event.stopPropagation()} className="text-foreground hover:text-violet-600 transition-colors"><button className="px-3 py-1 text-xs font-semibold cursor-pointer rounded-xl bg-violet-50 dark:bg-violet-900/30 text-foreground">Visit Site</button></a>
                   </div>
                 </div>
 
@@ -90,6 +118,61 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-md"
+          role="presentation"
+          onClick={() => setSelectedProject(null)}
+        >
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
+            initial={{ opacity: 0, scale: 0.96, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-3xl bg-background shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close project details"
+              onClick={() => setSelectedProject(null)}
+              className="absolute right-4 top-4 z-10 rounded-full bg-black/60 p-2 text-white transition-colors hover:bg-violet-600"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="relative h-64 w-full sm:h-80">
+              <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover" />
+            </div>
+
+            <div className="p-6 sm:p-8">
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 id="project-modal-title" className="text-2xl font-bold sm:text-3xl">{selectedProject.title}</h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {selectedProject.tags.map((tag) => (
+                      <span key={tag} className="rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-foreground dark:bg-violet-900/30">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex shrink-0 gap-3">
+                  <a href={selectedProject.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-card-border px-4 py-2 text-sm font-semibold transition-colors hover:text-violet-600">
+                    <Github size={17} /> GitHub
+                  </a>
+                  <a href={selectedProject.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-700">
+                    Visit Site <ExternalLink size={17} />
+                  </a>
+                </div>
+              </div>
+              <p className="mt-6 text-base leading-7 text-foreground/80">{selectedProject.description}</p>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   )
 }
