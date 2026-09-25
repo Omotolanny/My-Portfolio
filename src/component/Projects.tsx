@@ -25,7 +25,7 @@ const myProjects = [
     title: "Sako Admin Dashboard",
     description: "A confidential fintech product currently in pre-launch. I designed and built the admin dashboard, integrated the application with its backend services, and helped connect the internal workflows needed to support the product.",
     tags: ["Next.js", "TailwindCSS", 'postman'],
-    status: "Confidential pre-launch project"
+    // status: "Confidential pre-launch project"
   }
 ]
 
@@ -83,13 +83,13 @@ export default function Projects() {
               className="group relative bg-background rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 hover:shadow-xl hover:shadow-violet-500/10 transition-all"
             >
              
-              <div className="relative h-52 w-full  overflow-hidden">
+              <div className="relative h-52 w-full overflow-hidden md:hidden">
                 <div className="absolute inset-0  group-hover:bg-transparent transition-colors z-10" />
                 {project.image ? (
                   <Image src={project.image} alt={project.title} fill className='object-cover h-full'/>
                 ) : (
-                  <div className="flex h-full items-center justify-center bg-violet-700 px-6 text-center dark:bg-violet-950/30">
-                    <span className="text-sm font-semibold text-white dark:text-violet-300">Confidential project preview</span>
+                  <div className="flex h-full items-center justify-center bg-violet-50 px-6 text-center dark:bg-violet-950/30">
+                    <span className="text-sm font-semibold text-violet-700 dark:text-violet-300">Confidential project preview</span>
                   </div>
                 )}
               </div>
@@ -106,11 +106,11 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <p className="text-foreground  text-sm mb-6 line-clamp-2">
+                <p className="text-foreground text-sm mb-6 line-clamp-2 md:line-clamp-none">
                   {project.description}
                 </p>
 
-                {project.status && <span className="mb-4 inline-block text-xs font-semibold text-violet-800 dark:text-violet-300">{project.status}</span>}
+                {/* {project.status && <span className="mb-4 inline-block text-xs font-semibold text-violet-900 dark:text-violet-300">{project.status}</span>} */}
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
@@ -137,7 +137,7 @@ export default function Projects() {
             aria-labelledby="project-modal-title"
             initial={{ opacity: 0, scale: 0.96, y: 12 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-background shadow-2xl sm:max-h-[90vh] sm:rounded-3xl"
+            className="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-background shadow-2xl sm:max-h-[80vh] sm:rounded-3xl"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -149,17 +149,17 @@ export default function Projects() {
               <X size={20} />
             </button>
 
-            <div className="relative h-36 w-full shrink-0 sm:h-80">
+            <div className="relative h-36 w-full shrink-0 sm:h-56 md:hidden">
               {selectedProject.image ? (
                 <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover" />
               ) : (
-                <div className="flex h-full items-center justify-center bg-violet-700 px-6 text-center dark:bg-violet-950/30">
-                  <span className="text-sm font-semibold text-white dark:text-violet-300">Confidential project preview</span>
+                <div className="flex h-full items-center justify-center bg-violet-50 px-6 text-center dark:bg-violet-950/30">
+                  <span className="text-sm font-semibold text-violet-700 dark:text-violet-300">Confidential project preview</span>
                 </div>
               )}
             </div>
 
-            <div className="overflow-y-auto p-5 sm:p-8">
+            <div className="overflow-y-auto p-5 sm:p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
                 <div>
                   <h3 id="project-modal-title" className="text-xl font-bold sm:text-3xl">{selectedProject.title}</h3>
@@ -180,7 +180,7 @@ export default function Projects() {
                   </a>}
                 </div>
               </div>
-              {selectedProject.status && <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-violet-800 dark:text-violet-300">{selectedProject.status}</p>}
+              {/* {selectedProject.status && <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-violet-900 dark:text-violet-300">{selectedProject.status}</p>} */}
               <p className="mt-5 text-sm leading-6 text-foreground/80 sm:mt-6 sm:text-base sm:leading-7">{selectedProject.description}</p>
             </div>
           </motion.div>
